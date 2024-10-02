@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Weather </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">Weather</a>
+                <form class="d-flex" id="weatherForm" onsubmit="return false;">
+                    <input class="form-control me-2" id="city_input" placeholder="Search Your City">
+                    <button class="btn btn-primary" onclick="searchWeather()" id="searchBtn"
+                        type="button">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class=" container">
+        <div class="weather-data">
+            <div class="card-text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Now</h4>
+                        <h2 class="card-text" id="temp">15&deg;c</h2>
+                        <p id="condition">Party Cloud</p>
+                    </div>
+                    <div id="weatherIcon"></div>
+
+                    <div class="card-footer">
+                        <p>
+                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                            <span id="date">Jan 10, 2024</span>
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                            <span id="clock">12:00 PM</span>
+                        </p>
+                        <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span id="location"> Panadura,SriLanka </span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class="weather-right">
+                    <h2>Today's Highlights</h2>
+                    <div class="highlights">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <p>Air Quality Index</p>
+                                        <p class="air-index aqi-1">Good</p>
+                                    </div>
+                                    <div class="air-indices">
+                                        <i class="fa-solid fa-wind fa-3x"></i>
+                                        <div class="item">
+                                            <p>PM2.5</p>
+                                            <h2>____</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <p>Air Quality Index</p>
+                                        <p class="air-index aqi-2">Good</p>
+                                    </div>
+                                    <div class="air-indices">
+                                        <i class="fa-solid fa-wind fa-3x"></i>
+                                        <div class="item">
+                                            <p>PM10</p>
+                                            <h2>____</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <p>Air Quality Index</p>
+                                        <p class="air-index aqi-2">Good</p>
+                                    </div>
+                                    <div class="air-indices">
+                                        <i class="fa-solid fa-wind fa-3x"></i>
+                                        <div class="item">
+                                            <p>SO2</p>
+                                            <h2>____</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <p>Air Quality Index</p>
+                                        <p class="air-index aqi-2">Good</p>
+                                    </div>
+                                    <div class="air-indices">
+                                        <i class="fa-solid fa-wind fa-3x"></i>
+                                        <div class="item">
+                                            <p>CO</p>
+                                            <h2>____</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <div class="carda">
+                    <div class="card-head">
+                        <p>Humidity</p>
+                    </div>
+                    <div class="card-iteam">
+                        <i class="fa-solid fa-droplet fa-3x"></i>
+                        <h2 id="humidity"> 94%</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+                <div class="carda">
+                    <div class="card-head">
+                        <p>Wind Speed</p>
+                    </div>
+                    <div class="card-iteam">
+                        <i class="fa-solid fa-wind fa-3x"></i>
+                        <h2 id="windspeed"> 12 mp/h</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+                <div class="carda">
+                    <div class="card-head">
+                        <p>pressure</p>
+                    </div>
+                    <div class="card-iteam">
+                        <i class="fa-solid fa-cloud-showers-water fa-3x"></i>
+                        <h2 id="pressure"> 1000 mb</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="carda">
+                    <div class="card-head">
+                        <p>Visibility</p>
+                    </div>
+                    <div class="card-iteam">
+                        <i class="fa-solid fa-volcano fa-3x"></i>
+                        <h2 id="visibility"> 5.0 km</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="carda">
+                    <div class="card-head">
+                        <p>Feel Like</p>
+                    </div>
+                    <div class="card-iteam">
+                        <i class="fa-solid fa-temperature-arrow-up fa-3x"></i>
+                        <h2 id="feels">11.3c</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="carda">
+                    <h2>5 Day Forecast</h2>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="forecast-item">
+                                <div class="icon-wrapper">
+                                    <p id="day1"></p>
+                                    <div id="icon1"></div>
+                                    <p id="temp1"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="forecast-item">
+                                <p id="day2"></p>
+                                <div id="icon2"></div>
+                                <p id="temp2"></p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="forecast-item">
+                                <p id="day3"></p>
+                                <div id="icon3"></div>
+                                <p id="temp3"></p>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="forecast-item">
+                                <p id="day4"></p>
+                                <div id="icon4"></div>
+                                <p id="temp4"></p>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="forecast-item">
+                                <p id="day5"></p>
+                                <div id="icon5"></div>
+                                <p id="temp5"></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-md-4 d-flex">
+                    <ul class="nav flex-column">
+                        <p>WeatherAPI provides accurate, real-time weather information, offering a wide range of data
+                            including current weather conditions, forecasts, and historical weather insights. By
+                            leveraging WeatherAPI, our website delivers up-to-date, localized weather information for
+                            cities around the world. Whether you're looking for temperature, humidity, wind speed, or
+                            detailed forecasts, WeatherAPI ensures reliable and precise data to help you stay informed.
+                        </p>
+                    </ul>
+                </div>
+
+
+
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook" />
+                            </svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
